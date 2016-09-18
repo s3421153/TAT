@@ -7,6 +7,10 @@
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
         <div class="card well">
+
+
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+
           <h2>LECTURER LOGIN</h2>
           
           <?php 
@@ -31,7 +35,7 @@
               class="accent-color secondary-text-color btn btn-lg" value="Log in">
 
             <hr>
-    
+            
           </form>
         </div>
       </div>
