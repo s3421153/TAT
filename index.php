@@ -6,7 +6,7 @@
   <div class="card-login">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        <div class="card well text-xs-center">
+        <div class="card text-xs-center">
 
 
           <span class="glyphicon glyphicon-user gi-5x" aria-hidden="true"></span>
