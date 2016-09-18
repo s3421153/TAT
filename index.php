@@ -44,7 +44,7 @@
     </div>
   </div>
 
-</div><!-- !container -->
+</div>
 <?php } ?>
 
 <?php if ( !empty($_SESSION['loggedIn']) ){ ?> 
