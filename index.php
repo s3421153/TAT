@@ -9,7 +9,7 @@
         <div class="card well">
 
 
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-user gi-5x" aria-hidden="true"></span>
 
           <h2>LECTURER LOGIN</h2>
           
