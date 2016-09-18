@@ -10,6 +10,7 @@
 .divider-color         { border-color: #000000; }
 
 
+
 /* Custom Styles */
 html, body {
     height: 100%;
@@ -18,54 +19,3 @@ html, body {
     color: inherit;
 }
 
-.card {
-    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);
-    border-radius: 2px;
-    border: 0;
-}
-.well {
-    background-image: none;
-    background-color: #ffffff;
-}
-
-.card-login, .card-register {
-    margin-top: 40px;
-}
-
-.card input[type=submit] {
-    width: 100%;
-}
-
-.main-content.container {
-    padding-left: 0px;
-    display:table;
-    margin-left: 0px;
-    height: 100%;
-    margin-top: -50px;
-    padding-top: 50px;
-}
-
-.main-content.container .row
-{
-    height: 100%;
-    display: table-row;
-}
-.col-xs-4.no-float, 
- .col-xs-8.no-float {
-    float: none;
-}
-.main-content.container .col-xs-4
-{
-    display: table-cell;
-    width: 25%;
-}
-.main-content.container .col-xs-8
-{
-    display: table-cell;
-    width: 75%;
-}
-
-ul.rooms {
-    list-style: none;
-    padding-left: 0;
-}

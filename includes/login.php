@@ -4,12 +4,8 @@ session_start();
 
 require('init.php');
 
-echo 'logging in..';
-
 // Instantiate User
 $theUser = new User();
-
-echo 'User created..';
 
 // set initial login status
 $_SESSION['loggedIn'] = $theUser->isLoggedIn();

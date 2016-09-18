@@ -31,9 +31,6 @@
               class="accent-color secondary-text-color btn btn-lg" value="Log in">
 
             <hr>
-            <div class="register">
-              <a href="register.php">Not already registered?</a>
-            </div>
     
           </form>
         </div>

@@ -28,9 +28,16 @@ include_once('init.php');
       <div class="navbar-header">
         <div class="navbar-brand text-primary-color">
           <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			</div>
+<ul class="nav navbar-nav">
+      <div class="container-fluid" id="nav_center">
 			        T.A.T.   
-        </div>
       </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Menu </a></li>
+      </ul>
+
     </div>
   </nav>
 
