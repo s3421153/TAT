@@ -1,3 +1,3 @@
-<?php require 'includes/header.php'; ?>
+<?php require 'https://tat-team-allocation-tool.herokuapp.com/Includes/header.php'; ?>
 
-<?php require 'includes/footer.php'; ?>
+<?php require 'https://tat-team-allocation-tool.herokuapp.com/Includes/footer.php'; ?>
