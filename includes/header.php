@@ -35,7 +35,7 @@ include_once('init.php');
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Menu </a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <span class="glyphicon glyphicon-menu-hamburger"</span>  </a></li>
       </ul>
 
     </div>
