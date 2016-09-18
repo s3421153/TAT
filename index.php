@@ -6,12 +6,13 @@
   <div class="card-login">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        <div class="card text-xs-center">
+        <div class="card">
+        <div class="text-xs-center">
 
 
-          <span class="glyphicon glyphicon-user gi-5x" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-user gi-5x text-xs-center" aria-hidden="true"></span>
 
-          <h2>LECTURER LOGIN</h2>
+          <h2 class="text-xs-center">LECTURER LOGIN</h2>
           
           <?php 
           // If there were errors 
@@ -34,9 +35,10 @@
             <input type="submit" name="login-submit" id="login-submit" 
               class="accent-color secondary-text-color btn btn-lg" value="Log in">
 
-            <hr>
             
           </form>
+
+        </div>
         </div>
       </div>
     </div>
