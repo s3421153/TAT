@@ -61,7 +61,6 @@ class User
         if ( password_verify($password, $passwordResult['Password']) )
         {
           $this->loggedIn = true;
-          echo "password ok!";
         }
       }
 
@@ -83,7 +82,7 @@ class User
 
   public function getUsername() 
   {
-    return $this->username;
+    return $this->email;
   }
 }
 ?>
