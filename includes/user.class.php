@@ -1,10 +1,5 @@
 <?php
-/**
- * User 
- *
- * authentication functions
- * 
- */
+
 class User 
 {
 
@@ -15,7 +10,6 @@ class User
 
   public function __construct() 
   {
-    // TODO
     return;
   }
 

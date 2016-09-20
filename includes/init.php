@@ -6,10 +6,10 @@ ini_set("display_errors", 1);
 
 // database
 define('DB_ENGINE', 'mysql');
-define('DB_HOST', 'us-cdbr-east.cleardb.com');
-define('DB_NAME', 'heroku_28c9e48fb74474b');
-define('DB_USER', 'bac0adfed3e195');
-define('DB_PW', '2c56bf62');
+define('DB_HOST', 'gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com');
+define('DB_NAME', 'i3xonmpt46m69w0j');
+define('DB_USER', 'lvftw2wzepbdugmo');
+define('DB_PW', 'p5wyi664uetc6niw');
 
 // includes
 require('functions.php');
