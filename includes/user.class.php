@@ -38,17 +38,17 @@ class User
     $emailResult = $emailQuery->fetch();
 
     // If we found a matching email
-    if($emailResult['UserId']) 
+    if($emailResult['Email']) 
     {
 	   echo 'found user';
 	   die();
-      $UserId = $emailResult['UserId'];
+      $UserID = $emailResult['UserID'];
 
       //Retrieve password hash
       $passwordQuery = $db->prepare('SELECT Password 
                                      FROM passwords 
-                                     WHERE UserId = :UserId');
-      $passwordQuery->bindparam(':UserId', $UserId, PDO::PARAM_STR, 255);
+                                     WHERE UserID = :UserID');
+      $passwordQuery->bindparam(':UserID', $UserID, PDO::PARAM_STR, 255);
       $passwordQuery->execute();
   
       $passwordResult = $passwordQuery->fetch();
