@@ -37,13 +37,12 @@ class User
 
     $emailResult = $emailQuery->fetch();
 
-    echo $emailResult['Email'];
+
 
     // If we found a matching email
     if($emailResult['Email']) 
     {
-	   echo 'found user';
-	   die();
+
       $UserID = $emailResult['UserID'];
 
       //Retrieve password hash
@@ -62,6 +61,7 @@ class User
         if ( password_verify($password, $passwordResult['Password']) )
         {
           $this->loggedIn = true;
+          echo "password ok!";
         }
       }
 
