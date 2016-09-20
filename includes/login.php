@@ -31,7 +31,7 @@ if ( isset($_POST['login-submit'])
   {
     // user is logged in, set session vars
     $_SESSION['loggedIn'] = $theUser->isLoggedIn();
-    $_SESSION['username'] = $theUser->getUsername();
+    $_SESSION['email'] = $theUser->getEmail();
   } 
   else 
   {
