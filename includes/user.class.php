@@ -37,6 +37,8 @@ class User
 
     $emailResult = $emailQuery->fetch();
 
+    echo $emailResult['Email']);
+
     // If we found a matching email
     if($emailResult['Email']) 
     {
