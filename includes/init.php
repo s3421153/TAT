@@ -12,7 +12,6 @@ define('DB_USER', 'lvftw2wzepbdugmo');
 define('DB_PW', 'p5wyi664uetc6niw');
 
 // includes
-require('functions.php');
 require('user.class.php');
 
 ?>
