@@ -40,6 +40,8 @@ class User
     // If we found a matching email
     if($emailResult['UserId']) 
     {
+	echo “found user”;
+	die();
       $UserId = $emailResult['UserId'];
 
       //Retrieve password hash
