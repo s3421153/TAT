@@ -80,7 +80,7 @@ class User
     return $this->registered;
   }
 
-  public function getUsername() 
+  public function getEmail() 
   {
     return $this->email;
   }
