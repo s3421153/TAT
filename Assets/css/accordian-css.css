@@ -1,0 +1,119 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-top: 0;
+  font-weight: 300;
+}
+.projects-header {margin-top: .5em;  font-weight: 600; color: #007fba;color: #0074D9; font-size: 1em;
+  background-color: whitesmoke;
+  padding: .5em;
+  border-bottom: solid 1px #999;
+  margin: 0;
+}
+
+.data-container {
+  width: 90%;
+  margin: 10px auto;
+/*  border: solid red;*/
+}
+
+.list-projects {background-color: #badde1; padding: 1em; margin: 0;}
+.list-projects li {padding: .1em; margin-left: .8em;}
+
+
+
+.ac-label {
+  font-weight: 700;
+  position: relative;
+  padding: .5em 1em;
+  margin-bottom: .5em;
+  display: block;
+  cursor: pointer;
+  background-color: whiteSmoke;
+  transition: background-color .15s ease-in-out;
+  
+/*  border: solid red 4px;*/
+}
+
+.ac-input:checked + label, .ac-label:hover {
+  background-color: #badde1;
+}
+
+.ac-label:after, .ac-input:checked + .ac-label:after {
+  content: "+";
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 0;
+  width: 2em;
+  height: 100%;
+  line-height: 2.25em;
+  text-align: center;
+  background-color: #e5e5e5;
+  transition: background-color .15s ease-in-out;
+}
+
+/*......................................................... + AND - HOVER COLOUR */
+.ac-label:hover:after, .ac-input:checked + .ac-label:after {
+  background-color: #b5b5b5;
+/*  background-color: orange;*/
+}
+
+.ac-input:checked + .ac-label:after {
+  content: "-";
+}
+
+/*......................................................... hide the check-boxes */
+.ac-input {
+  display: none;
+}
+
+/*............................................................. expanded content */
+.ac-text, .ac-sub-text {
+  opacity: 0;
+  height: 0; /*.......expands when check-box ticked */
+  margin-bottom: .5em;
+  transition: opacity .5s ease-in-out;
+  overflow: hidden;
+/*  background-color: yellow;*/
+}
+
+.ac-input:checked ~ .ac-text, .ac-sub .ac-input:checked ~ .ac-sub-text {
+  opacity: 1;
+  height: auto;
+/*  background-color: pink;*/
+}
+
+.ac-sub .ac-label {
+  background: none;
+  font-weight: 600;
+  color: #079e07;
+  padding: .5em 2em;
+  margin-bottom: 0;
+/*  background-color: pink;*/
+}
+
+.ac-sub .ac-label:checked {
+  background: none;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.ac-sub .ac-label:after, .ac-sub .ac-input:checked + .ac-label:after {
+  left: 0;
+  background: none;
+}
+
+.ac-sub .ac-input:checked + label, .ac-sub .ac-label:hover {
+  background: none;
+}
+
+.ac-sub-text {
+  padding: 0 1em 0 2em;
+}
