@@ -7,8 +7,14 @@
             </div> <!-- my-courses-panel -->
                 <!-- ................. ACCORDIAN BEGINS HERE ................... -->
                 <section class="data-container">
-						<?php foreach  $courseNames as $names
-							{
+						<?php  foreach  ($courseNames as $names)
+							  {
+							  	
+								foreach ($subjectName as $subject)
+									{
+							  	//	var_dump($courseNames);
+									//die();
+							  	
 						?>
                     <div class="ac">
 						
@@ -32,7 +38,7 @@
                                 <!-- check-box hidden in CSS -->
                                 <input class="ac-input" id="ac-2" name="ac-2" type="checkbox" />
                                 <!-- [PLACE HOLDER TEXT FOR UNITS LISTED]  --> 
-                                <label class="ac-label" for="ac-2"> COSC2650 Programming Project 1 </label>
+                                <label class="ac-label" for="ac-2"> <?php echo  $subject->SubjectName; ?> </label>
                                 <article class="ac-sub-text">
                                     <!-- ....................................... -->
                                     <!--             LIST PROJECTS               -->
@@ -52,7 +58,7 @@
                         </article>
                     </div> <!-- /ac -->
                     
-                    <?php  }  ?> 
+                    <?php } }  ?> 
                 </section> <!-- /data-container -->
                 <!-- .................. ACCORDIAN END  ......................... -->
         </section> <!-- my-courses-view -->
