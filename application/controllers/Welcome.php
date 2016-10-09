@@ -23,6 +23,7 @@ class Welcome extends CI_Controller {
 		$projectInfo['courseNames']=$this->projects->getCourses();	
 		
 		$projectInfo['subjectName']=$this->projects->getSubject();			
+		$projectInfo['projectName']=$this->projects->getProjects();
 		
 		$this->load->view('projectSelect', $projectInfo);
 		$this->load->view('footer', $header);

@@ -7,14 +7,11 @@
             </div> <!-- my-courses-panel -->
                 <!-- ................. ACCORDIAN BEGINS HERE ................... -->
                 <section class="data-container">
-						<?php  foreach  ($courseNames as $names)
+                		
+						<?php $ac=1; foreach  ($courseNames as $names)
 							  {
 							  	
-								foreach ($subjectName as $subject)
-									{
-							  	//	var_dump($courseNames);
-									//die();
-							  	
+								
 						?>
                     <div class="ac">
 						
@@ -22,23 +19,35 @@
 						
                         <!-- FIRST LEVEL  -->
                         <!-- uses check-box's, but hidden in CSS -->  
-                        <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />                       
+                        <input class="ac-input" id="ac-1" name="ac-<?php echo $ac ?>" type="checkbox" />                       
                         <!-- ................................................... -->
                         <!--              LIST DEGREE'S/COURSES                  -->
                         <!-- ................................................... --> 
                         <!-- [PLACE HOLDER TEXT FOR DEGREE'S LISTED]  -->
                         
+                      
                         
-						<label class="ac-label" for="ac-1"><?php echo  $names->CourseName; ?></label>
+						<label class="ac-label" for="ac-<?php echo $ac ?>"><?php echo  $names->CourseName; ?></label>
+						 <?php $ac++; ?>
                         <article class="ac-text">
                             <!-- ............................................... -->
                             <!--              LIST SUBJECT/UNIT'S                -->
                             <!-- ............................................... --> 
-                            <div class="ac-sub">
-                                <!-- check-box hidden in CSS -->
-                                <input class="ac-input" id="ac-2" name="ac-2" type="checkbox" />
+                           
+                              
+                               
                                 <!-- [PLACE HOLDER TEXT FOR UNITS LISTED]  --> 
-                                <label class="ac-label" for="ac-2"> <?php echo  $subject->SubjectName; ?> </label>
+                                <?php foreach ($subjectName as $subject) {
+                                	
+									?>
+									 <div class="ac-sub">
+									<input class="ac-input" id="ac-<?php echo $ac; ?>" name="ac-2" type="checkbox" />
+									
+									<?php
+									
+									 echo '<label class="ac-label" for="ac-'. $ac . '"> '. $subject->SubjectName .   ' </label> ';   ?>
+                                  <!-- check-box hidden in CSS -->
+                                 
                                 <article class="ac-sub-text">
                                     <!-- ....................................... -->
                                     <!--             LIST PROJECTS               -->
@@ -47,18 +56,24 @@
                                     <!-- THIRD LEVEL (expanded when clicked) -->
                                     <h3 class="projects-header">Projects:</h3>
                                     <ul class ="list-projects">
-                                        <!-- [PLACE HOLDER TEXT FOR PROJECTS LISTED TO A UNIT]  -->
-                                        <li><a href="#">Super Duper Project</a></li>
-                                        <li><a href="#">The Next Facebook </a></li>
-                                        <li><a href="#">Team Allocation Tool</a></li>
+                                    	 <?php foreach ($projectName as $project) 
+                                  			{
+                                    	 	
+											if ($project->P_SubjectID == $subject->SubjectID)
+                                    			{
+                                    			echo '<li><a href="'. $project->ProjectID .'">'. $project->Name  . '</a></li>'; 
+												} 
+												
+											}?>
+											
                                     </ul>  
                                </article>    
-
+								<?php   $ac++; } ?> 
                             </div> <!-- /ac-sub -->
                         </article>
                     </div> <!-- /ac -->
-                    
-                    <?php } }  ?> 
+               
+                    <?php } ?> 
                 </section> <!-- /data-container -->
                 <!-- .................. ACCORDIAN END  ......................... -->
         </section> <!-- my-courses-view -->
