@@ -171,6 +171,109 @@ header div h1 {
 }
 
 
+
+
+
+/*................................................... Pop-up Form (edit Project) */
+div#form-header h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6em !important;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: .2em;
+    margin: 0;
+    word-spacing: .3em;
+    letter-spacing: .2em;
+}
+div#form-header{
+    padding-top: 0;
+    width: 100%;
+    
+    background-color: #0074D9;
+    border: solid 1px #fff;
+/*    background-color: #4db349; green*/
+
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    -khtml-border-radius: 30px;
+   
+    height: 1.3em !important;
+    margin: 40px 0 80px 0 !important;
+
+}
+#edit-project-form {
+    width: 700px; 
+    border: solid #079e07 2px; 
+    background-color: #badde1;
+    border-radius: 14px;
+}
+/* layout & spacing of form elements vertically */
+#edit-project-form div { 
+    border-bottom: 1px solid #efefef;
+    margin: 1.5em;
+    padding-bottom: 1.5em;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+#edit-project-form .title { /* make form label text align vertically */
+    float: left;
+    width: 225px;
+    clear: left;
+}
+
+input {
+    font-size: 120%;
+    color: #5a5854;
+    background-color: #f2f2f2;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 5px 5px 5px 30px;
+    background-repeat: no-repeat;
+/*    margin-bottom: 1.3em;
+    margin-left: 2.5em;*/
+    
+}
+.shift /*YES/NO & MIN/MAX LABELS */
+{
+    margin-left: 0.4em;
+    margin-right: .4em;
+}
+
+/*hover on input text fields*/
+input [type="text"]:focus, input[type="text"]:hover {
+    background-color: #d0e2f0;
+    border: 2px solid #009966;
+}
+
+
+/*buttons (submit)*/
+#edit-project-form #buttons {width: 290px; margin: 0 auto;}
+
+#buttons button{
+    width: 100%;
+    border: 1px solid #006633;
+    border-radius: 6px;
+    background-color: #4db349;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 15px;
+    font-family: lato;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#buttons .cancel-btn {background-color: #fb6565;}
+
+#buttons button:hover {
+    border: 1px solid #feb96c;
+    color: #feb96c;
+}
+
+
+
+
+
 /*....................................................................... Footer */
 footer {
     background-color: #0074D9;

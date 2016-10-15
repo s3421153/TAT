@@ -4,9 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "425582499c09ce5b5eebb2abb6dc2111",
-    "content-hash": "163eb4764cfceda4201e2d993dd1e79d",
-    "packages": [],
+    "hash": "1ead86a4d3c919bf9275009d4855c469",
+    "content-hash": "c34cff3e591499d194f69d301ade3c1a",
+    "packages": [
+        {
+            "name": "chriskacerguis/codeigniter-restserver",
+            "version": "2.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chriskacerguis/codeigniter-restserver.git",
+                "reference": "079ea94915e558a868879f29e71f51c5e2f6dd84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chriskacerguis/codeigniter-restserver/zipball/079ea94915e558a868879f29e71f51c5e2f6dd84",
+                "reference": "079ea94915e558a868879f29e71f51c5e2f6dd84",
+                "shasum": ""
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Kacerguis",
+                    "role": "Developer"
+                }
+            ],
+            "description": "REST Server for the CodeIgniter framework",
+            "homepage": "https://github.com/chriskacerguis/codeigniter-restserver",
+            "time": "2016-09-08 13:08:34"
+        }
+    ],
     "packages-dev": [
         {
             "name": "mikey179/vfsStream",

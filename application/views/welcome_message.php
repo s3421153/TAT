@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+die();
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to TAT TEST WEBSITE!</h1>
 
 	<div id="body">
+		
+		
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>

@@ -14,8 +14,18 @@
   
         <link rel="stylesheet" href="Assets/css/accordian-css.css">
         <link rel="stylesheet" href="Assets/css/normalize.css">
-        <link rel="stylesheet" href="Assets/css//main.css">
+        <link rel="stylesheet" href="Assets/css/main.css">
         <script src="Assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        
+		
+		
+        <!-- ADDED LINES HERE (JS + CUSTOM JS IMPORTS) -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="http://localhost/TAT/Assets/js/vendor/popup-form.js"></script> <!-- custom JS for projects form -->
+      
+        
+                
         <link href="https://fonts.googleapis.com/css?family=Lato|Oswald:700" rel="stylesheet"> 
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
