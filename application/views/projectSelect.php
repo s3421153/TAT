@@ -63,7 +63,7 @@
                                     	 	
 											if ($project->P_SubjectID == $subject->SubjectID)
                                     			{
-                                    			echo '<li><a class="load-form"' . $project->ProjectID .'">'. $project->Name  . '</a></li>'; 
+                                    			echo '<li> <a class="load-form" id="'. $project->Name  . '">'. $project->Name  . '</a></li>'; 
 												} 
 												
 											}?>
@@ -79,15 +79,10 @@
                 </section> <!-- /data-container -->
                 <!-- .................. ACCORDIAN END  ......................... -->
                 
-                
-                
-                
-        <!-- ADDED LINES HERE -->        
-       <!-- ==================================================================== -->
-       <!--         POP-UP FORM TO EDIT PROJECT ATTRIBUTES BEGINS HERE           -->
-       <!--         THIS IS ONLY SEEN ONCE USER CLICKS ON A PROJECT             -->
-       <!-- ==================================================================== -->
-       <form id="edit-project-form" action="#" method="post">
+ </section> <!-- my-courses-view -->                
+          
+       
+	<form id="edit-project-form" action="#" method="post">
            
            <div id="form-header"> <h1>Edit Project</h1> </div>
            
@@ -95,6 +90,7 @@
            <div>
             <label class="title" for="project-name"> Project Name: </label> 
             <input type="text" name="project-name-field" id="project-name" />
+            
            <br/>
            </div>
            
@@ -149,12 +145,6 @@
        <!--                          END POP-UP FORM                             -->
        <!-- ==================================================================== -->
                 
+ ?>
                 
-                
-                
-                
-                
-                
-                
-                
-        </section> <!-- my-courses-view -->
+ 

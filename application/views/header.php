@@ -17,7 +17,9 @@
         <link rel="stylesheet" href="Assets/css/main.css">
         <script src="Assets/js/vendor/modernizr-2.8.3.min.js"></script>
         
-		
+		<!-- for UI Dialog -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 		
         <!-- ADDED LINES HERE (JS + CUSTOM JS IMPORTS) -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

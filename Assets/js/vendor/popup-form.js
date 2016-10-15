@@ -7,8 +7,14 @@ $(document).ready( function () {
      //find the project links
      $('.load-form').click(function () {
         //once clicked, open the dialog
+		
+		var projName = this.id;
+		
         $( "#edit-project-form" ).dialog("open");
-         
+	
+	$("#project-name").val(projName); 
+	
+		 
      });
     
     
