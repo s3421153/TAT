@@ -15,8 +15,7 @@ class Welcome extends CI_Controller {
 	public function home()
 		{
 			
-		$this->load->model('userfunc');
-		
+
 		$header['userEmail']=$this->userfunc->getUserEmail();		
 		$header['title']='Team Allocation Tool';
 		$header['pageHeader']= 'T.A.T';
