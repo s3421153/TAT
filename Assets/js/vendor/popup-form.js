@@ -12,17 +12,39 @@ $(document).ready( function () {
 	
 	var json=($.cookie(projName));
 	var obj = $.parseJSON(json);
-	console.log("my object: %o", obj);
+  console.log("my object: %o", obj);
 	
-	console.log ("Name: %o", obj.Name);
+//	console.log ("Name: %o", obj.Name);
 	
     $( "#edit-project-form" ).dialog("open");
 	
-	$("#project-name").val(obj.Name); 
-	$("#min-num-members").val(obj.StudentMin);
-	$("#max-num-members").val(obj.StudentMax);
-	$("#yes-gpa").val(obj.TakeGPAintoAccount);
-	$("#yes-gender").val(obj.GenderBalance);
+	$("#projectname").val(obj.Name); 
+	$("#min").val(obj.StudentMin);
+	$("#max").val(obj.StudentMax);
+	
+	if (obj.TakeGPAintoAccount == 1)
+		{
+			
+		$("#yesgpa").attr('checked', true);
+		
+		}
+	else
+		{
+		$("#yesgpa").removeAttr("checked");
+		}
+		
+	if (obj.GenderBalance == 1)
+		{
+			
+		$("#yesgender").attr('checked', true);
+	
+		}
+	else
+		{
+		$("#yesgender").removeAttr("checked");
+		}		
+
+	$('#ProjectID').val(obj.ProjectID);
 		 
      });
     

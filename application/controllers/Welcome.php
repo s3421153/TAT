@@ -35,7 +35,9 @@ class Welcome extends CI_Controller {
 		}
 public function data_submitted()
 		{
-		echo "here";
-		die();
+		$this->load->model('projects');
+		$post_data = $this->input->post();
+		$update = $this->projects->updateProject($post_data);
+		public function home();
 		}
 }

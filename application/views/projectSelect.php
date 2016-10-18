@@ -100,8 +100,8 @@
            <!-- TO-DO: PRE-LOAD PROJECT NAME INTO FIELD -->
            <div>
             <label class="title" for="project-name"> Project Name: </label> 
-            <input type="text" name="project-name-field" id="project-name" />
-            
+            <input type="text" name="projectnamefield" id="projectname" />
+            <input type="hidden" name="projectID" id="ProjectID" value=""/>
            <br/>
            </div>
            
@@ -114,7 +114,7 @@
            <span class="title">Range of Members:</span>
           
                <!-- MINIMUM -->
-               <select name="min-num-members" id="min">
+               <select name="minnummembers" id="min">
                	   <option value="null"></option>
                    <option value="4">4</option>
                    <option value="4">5</option>
@@ -124,7 +124,7 @@
            
         
                <!-- MAXIMUM -->
-               <select name="max-num-members" id="max">
+               <select name="maxnummembers" id="max">
                	   <option value="null"></option>
                    <option value="4">4</option>
                    <option value="4">5</option>
@@ -138,11 +138,11 @@
            <div>
            <span class="title"> Consider GPA? </span>
            <!-- YES -->
-           <input id="yes-gpa" type="checkbox" name="yes" value="1"> <!-- NOTE VALUE IS SET TO NUMERIC 1 TO INDICATE TRUE ON BOOLEAN -->
+           <input id="yesgpa"  type="checkbox"  name="GPA"  checked=""> 
 		
 			<span class="title"> Gender Balance? </span>
            <!-- YES --> <br/>
-           <input id="yes-gender" type="checkbox" name="yes" value="1"> <!-- NOTE VALUE IS SET TO NUMERIC 1 TO INDICATE TRUE ON BOOLEAN -->
+           <input id="yesgender"  type="checkbox" name="Gender" checked=""> 
   
            
            <div id="buttons">
