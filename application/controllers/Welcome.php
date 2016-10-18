@@ -16,9 +16,9 @@ class Welcome extends CI_Controller {
 		{
 			
 		$this->load->model('projects');
-//		$this->load->model('Userfunc');
+		$this->load->model('Userfunc');
 		
-		$header['userEmail']='test@test.com';   //$this->Userfunc->getUserEmail();		
+		$header['userEmail']=$this->Userfunc->getUserEmail();		
 		$header['title']='Team Allocation Tool';
 		$header['pageHeader']= 'T.A.T';
 		

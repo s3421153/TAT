@@ -100,7 +100,7 @@
            <!-- TO-DO: PRE-LOAD PROJECT NAME INTO FIELD -->
            <div>
             <label class="title" for="project-name"> Project Name: </label> 
-            <input type="text" name="projectnamefield" id="projectname" />
+            <input type="text" name="project-namefield" id="projectname" />
             <input type="hidden" name="projectID" id="ProjectID" value=""/>
            <br/>
            </div>
@@ -158,5 +158,5 @@
        <!--                          END POP-UP FORM                             -->
        <!-- ==================================================================== -->
                 
-                
+  </div>              
  
