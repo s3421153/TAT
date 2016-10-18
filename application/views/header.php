@@ -16,7 +16,8 @@
         <link rel="stylesheet" href="Assets/css/normalize.css">
         <link rel="stylesheet" href="Assets/css/main.css">
         <script src="Assets/js/vendor/modernizr-2.8.3.min.js"></script>
-        
+	
+		
 		<!-- for UI Dialog -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -30,7 +31,8 @@
                 
         <link href="https://fonts.googleapis.com/css?family=Lato|Oswald:700" rel="stylesheet"> 
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-
+		<script src="Assets/js/vendor/js-cookie.js"></script>
+		
     </head>
 
     <!-- using HTML5 boilerplate: https://html5boilerplate.com/ -->

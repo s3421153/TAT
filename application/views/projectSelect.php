@@ -56,19 +56,30 @@
                                     <!-- THIRD LEVEL (expanded when clicked) -->
                                     <h3 class="projects-header">Projects:</h3>
                                     <ul class ="list-projects">
-                                        
-<!-- *********** GUY! ADDED A CLASS HERE TO THE <a> LINKS THAT IS USED BE JAVASCRIPT FOR AN ONCLICK EVENT ************* -->                     
-                                    	 <?php foreach ($projectName as $project) 
+                                    	
+                                   
+                                    <?php 
+                                    
+                                   
+                                    	 foreach ($projectName as $project) 
                                   			{
-                                    	 	
+                                    	 		
 											if ($project->P_SubjectID == $subject->SubjectID)
                                     			{
-                                    			echo '<li> <a class="load-form" id="'. $project->Name  . '">'. $project->Name  . '</a></li>'; 
+                                    			echo '<li> <a class="load-form" id="'. $project->ProjectID  . '">'. $project->Name  . '</a></li>'; 
+												
+												$json = json_encode($project);
+												
+												setcookie($project->ProjectID, $json,  strtotime( "+ 60 seconds") );
 												} 
 												
 											}?>
 											
                                     </ul>  
+                                    </tr>
+   									</tbody>
+ 								</table>
+ 								
                                </article>    
 								<?php   $ac++; } ?> 
                             </div> <!-- /ac-sub -->
@@ -95,12 +106,16 @@
            </div>
            
            
+           
+           
+           
            <!-- SPECIFY RANGE OF MEMBERS -->
            <div>
            <span class="title">Range of Members:</span>
           
                <!-- MINIMUM -->
                <select name="min-num-members" id="min">
+               	   <option value="null"></option>
                    <option value="4">4</option>
                    <option value="4">5</option>
                    <option value="6">6</option>
@@ -110,6 +125,7 @@
         
                <!-- MAXIMUM -->
                <select name="max-num-members" id="max">
+               	   <option value="null"></option>
                    <option value="4">4</option>
                    <option value="4">5</option>
                    <option value="6">6</option>
@@ -122,16 +138,13 @@
            <div>
            <span class="title"> Consider GPA? </span>
            <!-- YES -->
-           <input id="yes-gpa" type="radio" name="yes" value="1"> <!-- NOTE VALUE IS SET TO NUMERIC 1 TO INDICATE TRUE ON BOOLEAN -->
-           <label for="yes-gpa" class="shift"> YES </label>
+           <input id="yes-gpa" type="checkbox" name="yes" value="1"> <!-- NOTE VALUE IS SET TO NUMERIC 1 TO INDICATE TRUE ON BOOLEAN -->
+		
+			<span class="title"> Gender Balance? </span>
+           <!-- YES --> <br/>
+           <input id="yes-gender" type="checkbox" name="yes" value="1"> <!-- NOTE VALUE IS SET TO NUMERIC 1 TO INDICATE TRUE ON BOOLEAN -->
+  
            
-           <!-- NO -->
-           <input id="no-gpa" type="radio" name="no" value="0">   <!-- NOTE VALUE IS SET TO NUMERIC 0 TO INDICATE FALSE ON BOOLEAN -->
-           <label for="no-gpa" class="shift"> NO </label> <br/>
-           </div> 
-           
-           
-           <!-- SUBMIT FORM -->
            <div id="buttons">
            <!-- SAVE CHANGES TO DB  -->
            <button> Save Changes </button> <br/>
@@ -145,6 +158,5 @@
        <!--                          END POP-UP FORM                             -->
        <!-- ==================================================================== -->
                 
- ?>
                 
  
