@@ -55,4 +55,11 @@ function getCourses()
 
 
 }
+
+function updateProject()
+	{
+	
+	}
+
+
 	?>

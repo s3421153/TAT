@@ -1,7 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller{
+class Welcome extends CI_Controller {
+
+ function __construct() {
+        parent::__construct();
+        $this->load->helper('url');
+    }
 
 	public function index()
 	 	{
@@ -28,5 +33,9 @@ class Welcome extends CI_Controller{
 		$this->load->view('projectSelect', $projectInfo);
 		$this->load->view('footer', $header);
 		}
-
+public function data_submitted()
+		{
+		echo "here";
+		die();
+		}
 }

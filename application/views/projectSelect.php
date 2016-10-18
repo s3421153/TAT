@@ -93,7 +93,7 @@
  </section> <!-- my-courses-view -->                
           
        
-	<form id="edit-project-form" action="#" method="post">
+	<form id="edit-project-form" action="<?php echo site_url("Welcome/data_submitted");?>" method="post">
            
            <div id="form-header"> <h1>Edit Project</h1> </div>
            
