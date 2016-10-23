@@ -13,10 +13,7 @@ class Update extends CI_Controller
 
 	public function index()
 	 	{
-	//	$this->data_submitted();
-		echo "fuck";
-		die();
-		
+	//	$this->data_submitted();	
 		}
 		
 public function data_submitted()
