@@ -15,24 +15,17 @@ class Welcome extends CI_Controller {
 	public function home()
 		{
 			
-<<<<<<< HEAD
+
 		$this->load->model('projects');
-		$this->load->model('Userfunc');
-=======
-		$this->load->model('User_func');
->>>>>>> 925ffb0
+		$this->load->model('userfunc');
+
 		
 		$header['userEmail']=$this->Userfunc->getUserEmail();		
 		$header['title']='Team Allocation Tool';
 		$header['pageHeader']= 'T.A.T';
 		
 		$this->load->view('header', $header);
-				
-<<<<<<< HEAD
-		
-=======
-		$this->load->model('Projects');
->>>>>>> 925ffb0
+
 		//Get Course Names
 		$projectInfo['courseNames']=$this->projects->getCourses();	
 		
