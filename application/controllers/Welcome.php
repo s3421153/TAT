@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
 		
 		$this->load->view('header', $header);
 				
-		$this->load->model('projects');
+		$this->load->model('Projects');
 		//Get Course Names
 		$projectInfo['courseNames']=$this->projects->getCourses();	
 		
@@ -38,6 +38,6 @@ public function data_submitted()
 		$this->load->model('projects');
 		$post_data = $this->input->post();
 		$update = $this->projects->updateProject($post_data);
-		$this->load->helper('');
+		
 		}
 }
