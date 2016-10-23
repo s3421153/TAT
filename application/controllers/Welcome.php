@@ -16,8 +16,8 @@ class Welcome extends CI_Controller {
 		{
 			
 
-		$this->load->model('projects');
-		$this->load->model('userfunc');
+		$this->load->model('Projects');
+		$this->load->model('Userfunc');
 
 		$header['userEmail']=$this->Userfunc->getUserEmail();		
 		$header['title']='Team Allocation Tool';
@@ -26,17 +26,17 @@ class Welcome extends CI_Controller {
 		$this->load->view('header', $header);
 
 		//Get Course Names
-		$projectInfo['courseNames']=$this->projects->getCourses();	
+		$projectInfo['courseNames']=$this->Projects->getCourses();	
 		
-		$projectInfo['subjectName']=$this->projects->getSubject();			
-		$projectInfo['projectName']=$this->projects->getProjects();
+		$projectInfo['subjectName']=$this->Projects->getSubject();			
+		$projectInfo['projectName']=$this->Projects->getProjects();
 		
 		$this->load->view('projectSelect', $projectInfo);
 		$this->load->view('footer', $header);
 		}
 public function data_submitted()
 		{
-		$this->load->model('projects');
+		$this->load->model('Projects');
 		$post_data = $this->input->post();
 		$update = $this->projects->updateProject($post_data);
 		
