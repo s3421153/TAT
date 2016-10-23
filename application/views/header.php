@@ -30,7 +30,7 @@
         
                 
         <link href="https://fonts.googleapis.com/css?family=Lato|Oswald:700" rel="stylesheet"> 
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 		<script src="Assets/js/vendor/js-cookie.js"></script>
 		
     </head>
