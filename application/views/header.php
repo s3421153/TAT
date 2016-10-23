@@ -25,7 +25,7 @@
         <!-- ADDED LINES HERE (JS + CUSTOM JS IMPORTS) -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="http://localhost/TAT/Assets/js/vendor/popup-form.js"></script> <!-- custom JS for projects form -->
+        <script src="Assets/js/vendor/popup-form.js"></script> <!-- custom JS for projects form -->
       
         
                 

@@ -15,8 +15,12 @@ class Welcome extends CI_Controller {
 	public function home()
 		{
 			
+<<<<<<< HEAD
 		$this->load->model('projects');
 		$this->load->model('Userfunc');
+=======
+		$this->load->model('User_func');
+>>>>>>> 925ffb0
 		
 		$header['userEmail']=$this->Userfunc->getUserEmail();		
 		$header['title']='Team Allocation Tool';
@@ -24,7 +28,11 @@ class Welcome extends CI_Controller {
 		
 		$this->load->view('header', $header);
 				
+<<<<<<< HEAD
 		
+=======
+		$this->load->model('Projects');
+>>>>>>> 925ffb0
 		//Get Course Names
 		$projectInfo['courseNames']=$this->projects->getCourses();	
 		
@@ -39,6 +47,6 @@ public function data_submitted()
 		$this->load->model('projects');
 		$post_data = $this->input->post();
 		$update = $this->projects->updateProject($post_data);
-		$this->home();
+		
 		}
 }

@@ -104,35 +104,32 @@
             <input type="hidden" name="projectID" id="ProjectID" value=""/>
            <br/>
            </div>
-           
-           
-           
-           
-           
+          
            <!-- SPECIFY RANGE OF MEMBERS -->
            <div>
            <span class="title">Range of Members:</span>
           
                <!-- MINIMUM -->
-               <select name="minnummembers" id="min">
+               <select id="min" name="minnummembers" >
                	   <option value="null"></option>
+               	   <option value="3">3</option>
                    <option value="4">4</option>
-                   <option value="4">5</option>
+                   <option value="5">5</option>
                    <option value="6">6</option>
                </select>
                <label for="min" class="shift">MIN</label>
            
         
                <!-- MAXIMUM -->
-               <select name="maxnummembers" id="max">
+               <select id="max" name="maxnummembers" >
                	   <option value="null"></option>
+               	   <option value="3">3</option>
                    <option value="4">4</option>
-                   <option value="4">5</option>
+                   <option value="5">5</option>
                    <option value="6">6</option>
                </select>
            <label for="max" class="shift">MAX</label> <br/>
            </div>
-           
            
            <!-- CONSIDER GPA -->
            <div>
@@ -158,5 +155,9 @@
        <!--                          END POP-UP FORM                             -->
        <!-- ==================================================================== -->
                 
+<<<<<<< HEAD
   </div>              
+=======
+</div>                
+>>>>>>> 925ffb0
  

@@ -19,7 +19,14 @@ $(document).ready( function () {
     $( "#edit-project-form" ).dialog("open");
 	
 	$("#projectname").val(obj.Name); 
-	$("#min").val(obj.StudentMin);
+	
+//	var e = document.getElementById("min");
+	var minval =obj.StudentMin;
+	
+	console.log (minval);
+//	var min = e.options[e.selectedIndex].minval;
+	
+	$("#min").val(minval);
 	$("#max").val(obj.StudentMax);
 	
 	if (obj.TakeGPAintoAccount == 1)
