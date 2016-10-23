@@ -83,6 +83,7 @@ $autoload['libraries'] = array('database');
 */
 $autoload['drivers'] = array();
 
+$autoload['drivers'] = array('REST_Controller');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Helper Files

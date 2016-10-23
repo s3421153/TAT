@@ -1,11 +1,31 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends REST_Controller {
+require APPPATH.'/libraries/REST_Controller.php';
+
+class Users extends REST_Controller 
+{
+	
+	function __construct()
+    	{
+        parent::__construct();
+  //  	$this->users_get();
+    	}
+	
+	
     public function index()
-      {
-      $foo = array('fake' => 'data');
-          $this->response($foo, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-      }
+      	{
+        echo $this->response(array('test'=> 'test'), 200);
+		}
+	  
+	public function users_get() 
+		{
+        $this->response(array('test'=> 'My First API'), 200);
+        }
+	public function abc_get() 
+		{
+        $this->response(array('test'=> 'My First abc'), 200);
+        }
 }
 
 ?>
