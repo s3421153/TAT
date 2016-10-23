@@ -144,7 +144,7 @@
            
            <div id="buttons">
            <!-- SAVE CHANGES TO DB  -->
-           <button> Save Changes </button> <br/>
+           <button  value="Submit"> Save Changes </button> <br/>
  
            </div>
                 
