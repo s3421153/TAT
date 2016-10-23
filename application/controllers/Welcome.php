@@ -38,6 +38,6 @@ public function data_submitted()
 		$this->load->model('projects');
 		$post_data = $this->input->post();
 		$update = $this->projects->updateProject($post_data);
-		$this->home();
+		$this->load->helper('');
 		}
 }
