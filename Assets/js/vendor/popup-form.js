@@ -12,7 +12,7 @@ $(document).ready( function () {
 	
 	var json=($.cookie(projName));
 	var obj = $.parseJSON(json);
-  console.log("my object: %o", obj);
+//  console.log("my object: %o", obj);
 	
 //	console.log ("Name: %o", obj.Name);
 	
@@ -23,7 +23,7 @@ $(document).ready( function () {
 //	var e = document.getElementById("min");
 	var minval =obj.StudentMin;
 	
-	console.log (minval);
+//	console.log (minval);
 //	var min = e.options[e.selectedIndex].minval;
 	
 	$("#min").val(minval);

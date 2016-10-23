@@ -93,14 +93,14 @@
  </section> <!-- my-courses-view -->                
           
        
-	<form id="edit-project-form" action="<?php echo site_url("Welcome/data_submitted");?>" method="post">
+	<form id="edit-project-form" action="<?php echo site_url("Update/data_submitted");?>" method="post">
            
            <div id="form-header"> <h1>Edit Project</h1> </div>
            
            <!-- TO-DO: PRE-LOAD PROJECT NAME INTO FIELD -->
            <div>
             <label class="title" for="project-name"> Project Name: </label> 
-            <input type="text" name="project-namefield" id="projectname" />
+            <input type="text" name="projectnamefield" id="projectname" />
             <input type="hidden" name="projectID" id="ProjectID" value=""/>
            <br/>
            </div>
@@ -145,9 +145,7 @@
            <div id="buttons">
            <!-- SAVE CHANGES TO DB  -->
            <button> Save Changes </button> <br/>
-           
-           <!-- CANCEL/RETURN, OMMIT FROM DB -->
-           <button class="cancel-btn"> Cancel/Return </button>
+ 
            </div>
                 
        </form>

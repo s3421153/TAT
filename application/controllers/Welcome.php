@@ -3,19 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
- function __construct() {
+ function __construct() 
+ 	{
         parent::__construct();
-        $this->load->helper('url');
+        
     }
+
+
 
 	public function index()
 	 	{
+	 
 		$this->home();
 		}
 	public function home()
 		{
 			
-
+		$this->load->helper('url');
 		$this->load->model('Projects');
 		$this->load->model('Userfunc');
 
@@ -34,11 +38,5 @@ class Welcome extends CI_Controller {
 		$this->load->view('projectSelect', $projectInfo);
 		$this->load->view('footer', $header);
 		}
-public function data_submitted()
-		{
-		$this->load->model('Projects');
-		$post_data = $this->input->post();
-		$update = $this->projects->updateProject($post_data);
-		
-		}
+
 }
