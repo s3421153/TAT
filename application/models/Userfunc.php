@@ -9,19 +9,30 @@ function __construct()
 
 function getUserEmail()
 	{
-		
-	$query = $this->db->query('SELECT Email FROM user where UserID=1');
-	
+	return $_SESSION['User_ID'];
+	}
 
-	if ($query->num_Rows() > 0 )
-		{
+function apiAuth($email, $pass)
+	{
+	$url = "http://localhost/tatui/api/users/loginUser?email=".$email."&password=".$pass;
+	echo $url . '</br>';
+
+	$loginUser = file_get_contents($url);
+	
+		if ( $loginUser == 'true')
+			{
+			// echo 'Password Correct';
 			
-			return $query->result(); 
-		}
-	else
-		{
-			return NULL;
-		}
+			$_SESSION['logged_in']=true;
+			$_SESSION['User_ID']=$email;
+			
+			}
+		else 
+			{
+			echo 'User / password invalid';
+			}
+			
+	return $loginUser;
 	}
 
 

@@ -20,8 +20,9 @@ class Users extends REST_Controller
 	  
 	public function users_get() 
 		{
-        $this->response(array('test'=> 'My First API'), 200);
-        }
+        
+	
+		}
 	public function abc_get() 
 		{
         $this->response(array('test'=> 'My First abc'), 200);

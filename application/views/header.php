@@ -12,10 +12,10 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
-        <link rel="stylesheet" href="Assets/css/accordian-css.css">
-        <link rel="stylesheet" href="Assets/css/normalize.css">
-        <link rel="stylesheet" href="Assets/css/main.css">
-        <script src="Assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="<?php echo base_url()?>Assets/css/accordian-css.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>Assets/css/normalize.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>Assets/css/main.css">
+        <script src="<?php echo base_url()?>Assets/js/vendor/modernizr-2.8.3.min.js"></script>
 	
 		
 		<!-- for UI Dialog -->
@@ -25,7 +25,7 @@
         <!-- ADDED LINES HERE (JS + CUSTOM JS IMPORTS) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="Assets/js/vendor/popup-form.js"></script> <!-- custom JS for projects form -->
+        <script src="<?php echo base_url()?>Assets/js/vendor/popup-form.js"></script> <!-- custom JS for projects form -->
       
         
                 
@@ -62,18 +62,33 @@
             
             <i class="fa fa-user fa-4x" aria-hidden="true"></i>
              <!-- [PLACE HOLDER] Lectuer's login email here -->
-            <?php if (isset($userEmail[0]->Email))
+             
+             
+             
+             
+            <?php 
+            
+     
+            if (isset($userEmail))
 					{
-	        		echo' <span class="lecture-email"> ' .   $userEmail[0]->Email ; 
+	        		echo' <span class="lecture-email"> ' .   $userEmail; 
      	    		echo '</span>';
+					
+					 //<!-- LOG OUT FUNCTIONALITY HERE -->
+					 
+					echo '<a href="'. site_url("Functions/userLogout") .'" class="log-out">log out</a>';
+           
 					}
 				else 
 					{
 					echo'User Login ';
 					echo '</span>';
+				
 					}
 			?>
-            <!-- LOG OUT FUNCTIONALITY HERE -->
-            <a href="#" class="log-out">log out</a>
-             
+           
+            
+         
+            
+  
         </section>

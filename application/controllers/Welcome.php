@@ -13,12 +13,21 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	 	{
-	 	
-		$this->home();
+	 	if ($_SESSION['logged_in'] == true)
+			{
+			$this->home();
+			}
+		else 
+			{
+			redirect(Login);
+			}
+		
 		}
 	public function home()
 		{
 			
+		if ($_SESSION['logged_in'] != true) { redirect(Login); }
+				
 		$this->load->helper('url');
 		$this->load->model('Projects');
 		$this->load->model('Userfunc');
@@ -30,6 +39,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('header', $header);
 
 		//Get Course Names
+		
 		$projectInfo['courseNames']=$this->Projects->getCourses();	
 		
 		$projectInfo['subjectName']=$this->Projects->getSubject();			

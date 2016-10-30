@@ -13,13 +13,25 @@ class Login extends CI_Controller
 
 	public function index()
 	 	{
-	 		
+	 	if (isset($_SESSION['logged_in']))
+			{
+			redirect(Welcome);
+			}
+		
 		$header['title']='Team Allocation Tool';
 		$header['pageHeader']= 'T.A.T';
-	 	$this->load->model('Userfunc');
+
+	 	
+		
 		$this->load->view('header', $header);
 		
+		$this->load->view('loginWindow');
+	
 		$this->load->view('footer', $header);
 		}
 
+
+
+
 	}
+	

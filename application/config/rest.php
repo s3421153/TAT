@@ -101,7 +101,7 @@ $config['rest_realm'] = 'REST API';
 |           authorization key
 |
 */
-$config['rest_auth'] = 'digest';
+$config['rest_auth'] = 'false';
 /*
 |--------------------------------------------------------------------------
 | REST Login Source
@@ -192,7 +192,7 @@ $config['auth_library_function'] = '';
 | Array of usernames and passwords for login, if ldap is configured this is ignored
 |
 */
-$config['rest_valid_logins'] = array('admin' => '1234');
+//$config['rest_valid_logins'] = array('admin' => '1234');
 /*
 |--------------------------------------------------------------------------
 | Global IP Whitelisting
