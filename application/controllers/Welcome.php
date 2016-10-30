@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	 	{
-	 
+	 	
 		$this->home();
 		}
 	public function home()
@@ -36,6 +36,15 @@ class Welcome extends CI_Controller {
 		$projectInfo['projectName']=$this->Projects->getProjects();
 		
 		$this->load->view('projectSelect', $projectInfo);
+		
+		$updated = $this->session->flashdata('updated');
+		
+	
+		if ($updated != null)
+			{
+			$this->load->view('SuccessMessage');		
+			}
+			
 		$this->load->view('footer', $header);
 		}
 

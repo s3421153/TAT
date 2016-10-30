@@ -61,10 +61,18 @@
         <section class="user-login-panel page-wrap">
             
             <i class="fa fa-user fa-4x" aria-hidden="true"></i>
-            
-            <!-- [PLACE HOLDER] Lectuer's login email here -->
-            <span class="lecture-email">  <?php echo  $userEmail[0]->Email ; ?></span>
-            
+             <!-- [PLACE HOLDER] Lectuer's login email here -->
+            <?php if (isset($userEmail[0]->Email))
+					{
+	        		echo' <span class="lecture-email"> ' .   $userEmail[0]->Email ; 
+     	    		echo '</span>';
+					}
+				else 
+					{
+					echo'User Login ';
+					echo '</span>';
+					}
+			?>
             <!-- LOG OUT FUNCTIONALITY HERE -->
             <a href="#" class="log-out">log out</a>
              

@@ -22,9 +22,10 @@ public function data_submitted()
 		$post_data = $this->input->post();
 		$update = $this->Projects->updateProject($post_data);
 		
-	//	var_dump($post_data);
-	
 		$this->load->helper('url');
+		
+		$this->session->set_flashdata('updated',1);
+		
 		redirect(Welcome/home);
 		}
 		

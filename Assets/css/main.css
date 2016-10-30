@@ -148,6 +148,8 @@ header div h1 {
 }
 
 
+
+
 /*............................................................. My Courses Panel */
 .my-courses-view {margin-bottom: 8em;}
 
@@ -169,6 +171,10 @@ header div h1 {
     height: 4em;
     margin-bottom: 1.1em;
 }
+
+
+
+
 
 
 
@@ -269,6 +275,61 @@ input [type="text"]:focus, input[type="text"]:hover {
     border: 1px solid #feb96c;
     color: #feb96c;
 }
+
+
+
+
+
+
+
+
+/*.......................................................... Success Message Div */
+div#confirmation-message-box {
+    border: solid 1px #000;
+    width: 480px;
+    height: 450px;
+    background-color: #badde1;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    left: 50%;
+    margin-left: -240px; /* Half of the width */
+
+}
+
+div#confirmation-message-box h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+    color: #fff;
+    text-align: center;
+    background-color: #0074D9;
+    border-radius: 30px;
+    padding: 10px;
+    width: 400px;
+    margin: 50px auto 30px auto;
+    letter-spacing: 1px;
+}
+
+div#confirmation-message-box img {
+    display: block;
+    margin: 0 auto;
+}
+
+#ok-button {
+    width: 300px;
+    margin: 40px auto 0px auto;
+    display: block;
+    padding: 20px;
+    border-radius: 15px;
+    
+}
+
+
+
+
+
+
+
 
 
 

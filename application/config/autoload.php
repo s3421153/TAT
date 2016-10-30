@@ -59,7 +59,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database', 'email', 'session');
 
 
 /*
@@ -83,7 +83,7 @@ $autoload['libraries'] = array('database');
 */
 $autoload['drivers'] = array();
 
-$autoload['drivers'] = array('REST_Controller');
+$autoload['drivers'] = array('');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Helper Files
@@ -92,7 +92,7 @@ $autoload['drivers'] = array('REST_Controller');
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array('url', 'html', 'form');
 
 /*
 | -------------------------------------------------------------------
