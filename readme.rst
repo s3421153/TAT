@@ -1,3 +1,10 @@
+TEAM ALLOCATIION TOOL Project
+-----------------------------
+
+########################################################################################################################
+This repository contains the code (and other related files) that has been developed for the Team Allocation Tool project
+########################################################################################################################
+
 ###################
 What is CodeIgniter
 ###################
