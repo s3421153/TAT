@@ -35,26 +35,32 @@
 		
     </head>
 
-    <!-- using HTML5 boilerplate: https://html5boilerplate.com/ -->
+
     <body>
 
-    <!-- =================================================================== -->
-	<!--                        BRANDING / HEADER             	   	         -->
-	<!-- =================================================================== -->
         <header class="full-width">
             
             <div class="page-wrap">
                 <h1> <?php echo $pageHeader; ?> </h1>
             </div>
+          <?php 
             
+     
+            if (isset($userEmail))
+					{
+			echo' <nav class="page-wrap">
+                <ul>
+                    <li><a href="#"><span class="fa fa-home"></span> Home</a></li>
+                    <li><a href="#"> | &nbsp My Teams </a></li>
+                   
+                </ul>
+			</nav> ';
+			
+							}
+			?>
+           
         </header>
         
-        
-        
-        
-    <!-- =================================================================== -->
-	<!--                       MAIN CONTENT BEGIN            		         -->
-	<!-- =================================================================== -->
         
         
         <!-- ..................USER LOG IN / LOG OUT PANEL...................... -->

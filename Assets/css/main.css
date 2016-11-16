@@ -531,4 +531,130 @@ footer span {letter-spacing: .2em;}
     h3 {
         page-break-after: avoid;
     }
+	
 }
+
+
+
+
+/*................................................................... Navigation */
+header nav ul {
+    list-style: none;
+}
+header nav li { 
+text-decoration: none;
+display: inline-block;
+}
+header nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-right: 10px;
+    padding-left: 0;
+    color: #fff;
+}
+
+header nav a:hover {
+    color: #badde1;
+}
+header nav a:visited {
+    color: #fff;
+} 
+
+
+
+
+
+
+/*..........................................................Assign Groups Button */
+#buttons .assign-grp-btn {
+    background-color: #feb96c;
+    color: #0074D9;
+}
+#buttons .assign-grp-btn:hover {
+    color: #0074D9;
+    border-color: #4db349;
+}
+
+
+	    
+    Please append these rules towards the end of main.css (before the footer styles)
+
+
+    Created on : 07/11/2016, 3:35:58 PM
+    Author     : Anathe Deans
+*/
+
+
+
+
+
+/*........................................................... Teams Display Page */
+.my-tables-view {margin-bottom: 8em;}
+
+.my-tables-view  h2 {
+    padding-top: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 4px;
+    letter-spacing: 3px;
+}
+
+
+
+#team-display-panel {
+    width: 100%;
+    background-color: #0074D9;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px; /* future proofing */
+    -khtml-border-radius: 30px; /* for old Konqueror browsers */
+    height: 4em;
+    margin-bottom: 1.1em;
+}
+
+#team-table-wrapper h2 {
+    color: #079e07;
+    font-family: 'Oswald', sans-serif;
+    border-bottom: solid 1px #079e07;
+    margin-top: 50px;
+    padding-bottom: 10px;
+    background-color: #eaf7e9;
+    border-top: solid 1px #079e07;
+/*    background-color: whitesmoke;*/
+}
+
+/* actual table styles */
+.my-tables-view table {
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+td {
+    padding: 2px 0 5px 20px;
+}
+td.first-student {padding-top: 10px}
+
+/* alternate colours for rows */
+tr:nth-child(odd) {
+    background-color: #badde1;
+}
+
+th {
+    background-color: #badde1;
+    font-family: 'Lato', sans-serif;
+    color: #0074D9;
+    font-size: 2em;
+    text-align: left;
+    letter-spacing: 0.1em;
+    word-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 0 3px 20px;
+    border-bottom: #0074D9 dashed 1px;
+    border-top: #0074D9 dashed 1px;
+    margin-bottom: 5px;
+}
+	
+

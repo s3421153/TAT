@@ -41,7 +41,7 @@ function getSubject()
 function getCourses()
 	{
 		
-	$query = $this->db->query('SELECT CourseName FROM Course');
+	$query = $this->db->query('SELECT CourseID, CourseName FROM Course');
 
 	if ($query->num_Rows() > 0 )
 		{
