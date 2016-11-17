@@ -12,6 +12,7 @@
 							  {
 							  	
 								
+								
 						?>
                     <div class="ac">
 						
@@ -34,12 +35,18 @@
                             <!--              LIST SUBJECT/UNIT'S                -->
                             <!-- ............................................... --> 
                            
+                           
                               
                                
                                 <!-- [PLACE HOLDER TEXT FOR UNITS LISTED]  --> 
                                 <?php foreach ($subjectName as $subject) {
                                 	
+									
 									?>
+									
+								
+								
+								
 									 <div class="ac-sub">
 									<input class="ac-input" id="ac-<?php echo $ac; ?>" name="ac-2" type="checkbox" />
 									
@@ -55,9 +62,15 @@
 
                                     <!-- THIRD LEVEL (expanded when clicked) -->
                                     <h3 class="projects-header">Projects:</h3>
-                                    <ul class ="list-projects">
-                                    	
+                                    
+                                
+                                    
+                                    	<a href="<?php echo site_url('Algorithm/run_alg/'.$names->CourseID.'/'.$subject->SubjectID); ?>"
+                                    	<button type="submit" class="btn btn-info btn-small"  title="Allocate Team"/>  Allocate Team </a>
+                                        <br/>
+                                        <ul class ="list-projects">
                                    
+                               
                                     <?php 
                                     
                                    
@@ -143,9 +156,15 @@
   
            
            <div id="buttons">
-           <!-- SAVE CHANGES TO DB  -->
-           <button  value="Submit"> Save Changes </button> <br/>
+
+               <button class="assign-grp-btn"> Assign Group </button> <br/>
  
+               <!-- SAVE CHANGES TO DB  -->
+				<button  value="Submit"> Save Changes </button> <br/>
+
+               <!-- CANCEL/RETURN, OMMIT FROM DB -->
+               <button class="cancel-btn"> Cancel/Return </button>
+           </div>
            </div>
                 
        </form>
