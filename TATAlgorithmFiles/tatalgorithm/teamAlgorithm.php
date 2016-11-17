@@ -9,7 +9,7 @@
 function dbg_StudentSuitability($link, $message) {
   echo("<br><br>".$message);
   echo("<br>For a student to be considered for allocation he/she must have a studentsubjectresult record with a SubjectID that matches. This indicates the student is enrolled in this subject but not yet marked.");
-  $stmt = mysqli_prepare($link, "SELECT SuitabilityScore, SSR_StudentID, ProjectID FROM studentsuitability ORDER BY SuitabilitySCore DESC, SSR_StudentID, ProjectID ");
+  $stmt = mysqli_prepare($link, "SELECT SuitabilityScore, SSR_StudentID, ProjectID FROM StudentSuitability ORDER BY SuitabilitySCore DESC, SSR_StudentID, ProjectID ");
   $stmt->execute();
   $result = $stmt->get_result();
  if ($result != "") {
@@ -35,7 +35,7 @@ function dbg_StudentSuitability($link, $message) {
 /* Display data from the projectcounts table */
 function dbg_ProjectCounts($link) {
   echo("<br>ProjectCounts table created (no allocations yet):");
-  $stmt = mysqli_prepare($link, "SELECT PC_ProjectID, PC_AllocatedCount, PC_MaleCount, PC_FemaleCount FROM projectcounts ORDER BY PC_ProjectID");
+  $stmt = mysqli_prepare($link, "SELECT PC_ProjectID, PC_AllocatedCount, PC_MaleCount, PC_FemaleCount FROM ProjectCounts ORDER BY PC_ProjectID");
   $stmt->execute();
   $result = $stmt->get_result();
  if ($result != "") {
@@ -61,8 +61,8 @@ function dbg_ProjectCounts($link) {
 
 /* Display data from the teammebers table */
 function dbg_TeamMembers($link) {
-  echo("<br>Teammembers table created by algorithm:");
-  $stmt = mysqli_prepare($link, "SELECT TM_Number, TM_ProjectID, project.name, TM_StudentID, student.Last_Name FROM teammember, project, student WHERE TM_ProjectID = project.ProjectID and TM_StudentID = student.StudentID  ORDER BY TM_ProjectID, TM_StudentID");
+  echo("<br>Teammembers table:");
+  $stmt = mysqli_prepare($link, "SELECT TM_Number, TM_ProjectID, Project.Name, TM_StudentID, Student.Last_Name FROM TeamMember, Project, Student WHERE TM_ProjectID = Project.ProjectID and TM_StudentID = Student.StudentID  ORDER BY TM_ProjectID, TM_StudentID");
   $stmt->execute();
   $result = $stmt->get_result();
  if ($result != "") {
@@ -95,27 +95,27 @@ function dbg_TeamMembers($link) {
 /* Phase 1 - Create temporary tables */
 function createTempTables($link, $CourseID, $SubjectID) {
   // Create temporary studentsuitability table
-  $stmt = mysqli_prepare($link, "DROP TABLE IF EXISTS studentsuitability");
+  $stmt = mysqli_prepare($link, "DROP TABLE IF EXISTS StudentSuitability");
   $stmt->execute();
 
-  if ($stmt = mysqli_prepare($link, "CREATE TABLE studentsuitability AS SELECT SSR_StudentID, ProjectID, 0 AS SuitabilityScore FROM studentsubjectresult, project WHERE studentsubjectresult.SSR_SubjectID IN ( SELECT SubjectID FROM subject WHERE subject.S_CourseID = ? AND subject.SubjectID = ? ) and P_SubjectID = ?;")) {
+  if ($stmt = mysqli_prepare($link, "CREATE TABLE StudentSuitability AS SELECT SSR_StudentID, ProjectID, 0 AS SuitabilityScore FROM StudentSubjectResult, Project WHERE StudentSubjectResult.SSR_SubjectID IN ( SELECT SubjectID FROM Subject WHERE Subject.S_CourseID = ? AND Subject.SubjectID = ? ) and P_SubjectID = ?;")) {
     $stmt->bind_param('iii', $CourseID, $SubjectID, $SubjectID);
     $stmt->execute();
   }
 
-  $stmt = mysqli_prepare($link, "ALTER TABLE studentsuitability ADD SuitabilityID int PRIMARY KEY AUTO_INCREMENT");
+  $stmt = mysqli_prepare($link, "ALTER TABLE StudentSuitability ADD SuitabilityID int PRIMARY KEY AUTO_INCREMENT");
   $stmt->execute();
 
   // Create temporary projectcounts table
-  $stmt = mysqli_prepare($link, "DROP TABLE IF EXISTS projectcounts");
+  $stmt = mysqli_prepare($link, "DROP TABLE IF EXISTS ProjectCounts");
   $stmt->execute();
 
-  if ($stmt = mysqli_prepare($link, "CREATE TABLE projectcounts ( PC_ID INT NOT NULL AUTO_INCREMENT , PC_ProjectID INT NOT NULL , PC_AllocatedCount INT NOT NULL , PC_MaleCount INT NOT NULL , PC_FemaleCount INT NOT NULL , PRIMARY KEY (PC_ID)) ENGINE = MyISAM")) {
+  if ($stmt = mysqli_prepare($link, "CREATE TABLE ProjectCounts ( PC_ID INT NOT NULL AUTO_INCREMENT , PC_ProjectID INT NOT NULL , PC_AllocatedCount INT NOT NULL , PC_MaleCount INT NOT NULL , PC_FemaleCount INT NOT NULL , PRIMARY KEY (PC_ID)) ENGINE = MyISAM")) {
     $stmt->execute();
   }
 
   // Put ProjectIDs into projectcounts table
-  if ($stmt = mysqli_prepare($link, "INSERT INTO projectcounts(PC_ProjectID, PC_AllocatedCount, PC_MaleCount, PC_FemaleCount) SELECT DISTINCT studentsuitability.ProjectID, 0, 0, 0 FROM studentsuitability")) {
+  if ($stmt = mysqli_prepare($link, "INSERT INTO ProjectCounts(PC_ProjectID, PC_AllocatedCount, PC_MaleCount, PC_FemaleCount) SELECT DISTINCT StudentSuitability.ProjectID, 0, 0, 0 FROM StudentSuitability")) {
     $stmt->execute();
   }
 }
@@ -125,7 +125,7 @@ function calcScores($link) {
     /* For each studentID, projectID combination in the student suitability
        table, match the project's required skills to the student's skills
        and calculate the points. */
-   $stmt = mysqli_prepare($link, "SELECT SSR_StudentID, ProjectID FROM studentsuitability ORDER BY SSR_StudentID, ProjectID");
+   $stmt = mysqli_prepare($link, "SELECT SSR_StudentID, ProjectID FROM StudentSuitability ORDER BY SSR_StudentID, ProjectID");
   $stmt->execute();
   $result = $stmt->get_result();
 
@@ -136,7 +136,7 @@ function calcScores($link) {
       $projectID = $row[1];
       $projectScore = 0;
       /* find the matching project/student skills */
-      if ($stmt2 = mysqli_prepare($link, "SELECT DISTINCT projectskill.PS_Rating, projectskill.PS_ProjectID, projectskill.PS_SkillID, studentskill.SS_Rating FROM projectskill, studentskill WHERE projectskill.PS_ProjectID = ? AND studentskill.SS_StudentID = ? AND projectskill.PS_SkillID IN ( SELECT studentskill.SS_SkillID FROM studentskill WHERE studentskill.SS_StudentID = ? )")) {
+      if ($stmt2 = mysqli_prepare($link, "SELECT DISTINCT ProjectSkill.PS_Rating, ProjectSkill.PS_ProjectID, ProjectSkill.PS_SkillID, StudentSkill.SS_Rating FROM ProjectSkill, StudentSkill WHERE ProjectSkill.PS_ProjectID = ? AND StudentSkill.SS_StudentID = ? AND ProjectSkill.PS_SkillID IN ( SELECT StudentSkill.SS_SkillID FROM StudentSkill WHERE StudentSkill.SS_StudentID = ? )")) {
         $stmt2->bind_param('iii', $projectID, $studentID, $studentID);
         $stmt2->execute();
         $result2 = $stmt2->get_result();
@@ -154,7 +154,7 @@ function calcScores($link) {
       /* add points for GPA if required */
       $TakeGPAIntoAccount = 0;
       $GPALevel = 0;
-      if ($stmt3 = mysqli_prepare($link, "SELECT TakeGPAIntoAccount, GPALevel FROM project WHERE ProjectID = ?")) {
+      if ($stmt3 = mysqli_prepare($link, "SELECT TakeGPAIntoAccount, GPALevel FROM Project WHERE ProjectID = ?")) {
         $stmt3->bind_param('i', $projectID);
         $stmt3->execute();
         $result3 = $stmt3->get_result();
@@ -168,7 +168,7 @@ function calcScores($link) {
       }
       if ($TakeGPAIntoAccount != 0) {
         $StudentGPA = 0;
-        if ($stmt4 = mysqli_prepare($link, "SELECT StudentGPA from student where StudentID = ?")) {
+        if ($stmt4 = mysqli_prepare($link, "SELECT StudentGPA from Student where StudentID = ?")) {
           $stmt4->bind_param('i', $studentID);
           $stmt4->execute();
           $result4 = $stmt4->get_result();
@@ -184,7 +184,7 @@ function calcScores($link) {
       }
 
       /* add points if the student's project preferences match this project */
-      if ($stmt5 = mysqli_prepare($link, "SELECT SPP_Preference FROM studentprojectpreference WHERE SPP_StudentID = ? AND SPP_ProjectID = ?")) {
+      if ($stmt5 = mysqli_prepare($link, "SELECT SPP_Preference FROM StudentProjectPreference WHERE SPP_StudentID = ? AND SPP_ProjectID = ?")) {
         $stmt5->bind_param('ii', $studentID, $projectID);
         $stmt5->execute();
         $result5 = $stmt5->get_result();
@@ -203,7 +203,7 @@ function calcScores($link) {
       }
 
       /* update the points to the studentsuitability table */
-      if ($stmt6 = mysqli_prepare($link, "UPDATE studentsuitability SET SuitabilityScore = ? WHERE SSR_StudentID = ? AND ProjectID = ?")) {
+      if ($stmt6 = mysqli_prepare($link, "UPDATE StudentSuitability SET SuitabilityScore = ? WHERE SSR_StudentID = ? AND ProjectID = ?")) {
         $stmt6->bind_param('iii', $projectScore, $studentID, $projectID);
         $stmt6->execute();
         $result6 = $stmt6->get_result();
@@ -219,7 +219,7 @@ function calcScores($link) {
 function allocateStudents($link, $phase) {
   /* First delete any records that may have previously existed in the
      teammember table for the students that are about to be allocated. */
-  if ($stmt = mysqli_prepare($link, "DELETE FROM teammember WHERE TM_StudentID in ( SELECT DISTINCT SSR_StudentID FROM studentsuitability )")) {
+  if ($stmt = mysqli_prepare($link, "DELETE FROM TeamMember WHERE TM_StudentID in ( SELECT DISTINCT SSR_StudentID FROM StudentSuitability )")) {
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result != "")
@@ -228,7 +228,7 @@ function allocateStudents($link, $phase) {
 
   /* loop through the studentsuitability table */
 loop:
-  $stmt = mysqli_prepare($link, "SELECT SSR_StudentID, ProjectID FROM studentsuitability ORDER BY SuitabilitySCore DESC, SSR_StudentID, ProjectID ");
+  $stmt = mysqli_prepare($link, "SELECT SSR_StudentID, ProjectID FROM StudentSuitability ORDER BY SuitabilitySCore DESC, SSR_StudentID, ProjectID ");
   $stmt->execute();
   $result = $stmt->get_result();
   $row_cnt = mysqli_num_rows($result);
@@ -247,7 +247,7 @@ loop:
       $StudentMin = 0;
       $StudentMax = 0;
       $PC_AllocateCount = 0;
-      if ($stmt2 = mysqli_prepare($link, "SELECT StudentMin, StudentMax FROM project WHERE ProjectID = ?")) {
+      if ($stmt2 = mysqli_prepare($link, "SELECT StudentMin, StudentMax FROM Project WHERE ProjectID = ?")) {
         $stmt2->bind_param('i', $ProjectID);
         $stmt2->execute();
         $result2 = $stmt2->get_result();
@@ -259,7 +259,7 @@ loop:
           }
         }
       }
-      if ($stmt3 = mysqli_prepare($link, "SELECT PC_AllocatedCount FROM projectcounts WHERE PC_ProjectID = ?")) {
+      if ($stmt3 = mysqli_prepare($link, "SELECT PC_AllocatedCount FROM ProjectCounts WHERE PC_ProjectID = ?")) {
         $stmt3->bind_param('i', $ProjectID);
         $stmt3->execute();
         $result3 = $stmt3->get_result();
@@ -281,7 +281,7 @@ loop:
       if (($PC_AllocatedCount >= $StudentMax) and ($phase == 3)) {
         /* Delete any records with this projectID from the studentsuitability
            table because the project is now full */
-      if ($stmt3 = mysqli_prepare($link, "DELETE FROM studentsuitability WHERE ProjectID = ?")) {
+      if ($stmt3 = mysqli_prepare($link, "DELETE FROM StudentSuitability WHERE ProjectID = ?")) {
         $stmt3->bind_param('i', $ProjectID);
         $stmt3->execute();
         $result3 = $stmt3->get_result();
@@ -292,7 +292,7 @@ loop:
       }
 
       /* Allocate the Student to the Project in the teammember table */
-      if ($stmt4 = mysqli_prepare($link, "INSERT INTO teammember (TM_StudentID, TM_ProjectID) VALUES (?, ?);")) {
+      if ($stmt4 = mysqli_prepare($link, "INSERT INTO TeamMember (TM_StudentID, TM_ProjectID) VALUES (?, ?);")) {
         $stmt4->bind_param('ii', $SSR_StudentID, $ProjectID);
         $stmt4->execute();
         $result4 = $stmt4->get_result();
@@ -301,7 +301,7 @@ loop:
       }
       /* The TM_ProjectID is used as the TM_Number when creating teammember
          records */
-      if ($stmt4 = mysqli_prepare($link, "UPDATE teammember SET TM_Number = TM_ProjectID WHERE TM_StudentID = ? AND TM_ProjectID = ?")) {
+      if ($stmt4 = mysqli_prepare($link, "UPDATE TeamMember SET TM_Number = TM_ProjectID WHERE TM_StudentID = ? AND TM_ProjectID = ?")) {
         $stmt4->bind_param('ii', $SSR_StudentID, $ProjectID);
         $stmt4->execute();
         $result4 = $stmt4->get_result();
@@ -311,17 +311,17 @@ loop:
 
       /* Increment the AllocatedCount field in the projectcounts table */
       $PC_AllocatedCount += 1;
-      if ($stmt5 = mysqli_prepare($link, "UPDATE projectcounts SET PC_AllocatedCount = ? WHERE PC_ProjectID = ?")) {
+      if ($stmt5 = mysqli_prepare($link, "UPDATE ProjectCounts SET PC_AllocatedCount = ? WHERE PC_ProjectID = ?")) {
         $stmt5->bind_param('ii', $PC_AllocatedCount, $ProjectID);
         $stmt5->execute();
         $result5 = $stmt5->get_result();
         if ($result5 != "")
           echo("<br>Error updating projectcounts table");
       }
-      
+
       /* Now delete any other records for the allocated student from the
         studentsuitability table */
-      if ($stmt6 = mysqli_prepare($link, "DELETE FROM studentsuitability WHERE SSR_StudentID = ?")) {
+      if ($stmt6 = mysqli_prepare($link, "DELETE FROM StudentSuitability WHERE SSR_StudentID = ?")) {
         $stmt6->bind_param('i', $SSR_StudentID);
         $stmt6->execute();
         $result6 = $stmt6->get_result();
@@ -345,10 +345,19 @@ function teamAlgorithm($CourseID, $SubjectID) {
   mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
   // Connect to database
+
+  /*
   $db_user = "tat";
   $db_password = "tat";
   $db_host = "localhost";
   $db_name = "tatalgorithm";
+  */
+
+
+  $db_user = "lvftw2wzepbdugmo";
+  $db_password = "p5wyi664uetc6niw";
+  $db_host = "gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+  $db_name = "i3xonmpt46m69w0j";
 
   $link = mysqli_connect($db_host, $db_user, $db_password, $db_name) or
     die(mysqli_error($link));
