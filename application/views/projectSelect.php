@@ -64,10 +64,13 @@
                                     <h3 class="projects-header">Projects:</h3>
                                     
                                 
-                                    
-                                    	<a href="<?php echo site_url('Algorithm/run_alg/'.$names->CourseID.'/'.$subject->SubjectID); ?>"
-                                    	<button type="submit" class="btn btn-info btn-small"  title="Allocate Team"/>  Allocate Team </a>
-                                        <br/>
+                                    	<div class ="button-wrap">
+
+                                    	
+                                    	<button class="assign-grp-btn" title="Allocate Team">  <a href="<?php echo site_url('Algorithm/run_alg/'.$names->CourseID.'/'.$subject->SubjectID); ?>">  Allocate Team </a>
+                                    	</button>
+                                        <br/> </div>
+                                    	
                                         <ul class ="list-projects">
                                    
                                
@@ -156,8 +159,6 @@
   
            
            <div id="buttons">
-
-               <button class="assign-grp-btn"> Assign Group </button> <br/>
  
                <!-- SAVE CHANGES TO DB  -->
 				<button  value="Submit"> Save Changes </button> <br/>

@@ -12,10 +12,23 @@ function getUserEmail()
 	return $_SESSION['User_ID'];
 	}
 
+function apiPass($email)
+	{
+	
+
+			$_SESSION['logged_in']=true;
+			$_SESSION['User_ID']=$email;
+			
+	return;
+	}
+
+
 function apiAuth($email, $pass)
 	{
 	$url = "http://localhost/tatui/api/users/loginUser?email=".$email."&password=".$pass;
 	echo $url . '</br>';
+	
+
 
 	$loginUser = file_get_contents($url);
 	

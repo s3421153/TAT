@@ -227,6 +227,7 @@ function calcScores($link) {
 /* For Phase 2 - allocate the Minimum Required number of Students to each Project
    For Phase 3 - allocate up to the Maximum Required number of Students. */
 function allocateStudents($link, $phase) {
+	set_time_limit(0);
   /* First delete any records that may have previously existed in the
      teammember table for the students that are about to be allocated. */
   if ($stmt = mysqli_prepare($link, "DELETE FROM TeamMember WHERE TM_StudentID in ( SELECT DISTINCT SSR_StudentID FROM StudentSuitability )")) {
@@ -353,7 +354,7 @@ loop:
 /* -----------------------------------------------------------------------*/
 function teamAlgorithm($CourseID, $SubjectID) {
   mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
+	set_time_limit(0);	
   $db_user = "lvftw2wzepbdugmo";
   $db_password = "p5wyi664uetc6niw";
   $db_host = "gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";

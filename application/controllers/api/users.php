@@ -23,9 +23,18 @@ class Users extends REST_Controller
         
 	
 		}
-	public function abc_get() 
+	public function login_get($useremail, $userlevel) 
 		{
-        $this->response(array('test'=> 'My First abc'), 200);
+	   	$this->load->model('Userfunc');		
+		$loggedin = $this->Userfunc->apiPass($useremail);
+		
+		if (isset($_SESSION['logged_in']))
+			{
+			redirect(Welcome);
+			}
+		else {
+			redirect(Login);
+			}
         }
 }
 
