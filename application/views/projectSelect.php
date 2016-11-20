@@ -10,9 +10,7 @@
                 		
 						<?php $ac=1; foreach  ($courseNames as $names)
 							  {
-							  	
-								
-								
+	
 						?>
                     <div class="ac">
 						
@@ -30,10 +28,7 @@
                         
 						<label class="ac-label" for="ac-<?php echo $ac ?>"><?php echo  $names->CourseName; ?></label>
 						 <?php $ac++; ?>
-                        <article class="ac-text">
-                            <!-- ............................................... -->
-                            <!--              LIST SUBJECT/UNIT'S                -->
-                            <!-- ............................................... --> 
+                      
                            
                            
                            <?php
@@ -48,15 +43,18 @@
 										if ($subject->S_CourseID === $names->CourseID)
 											{
                               		
-                              		
+                              		 
                                 	
 									
 									?>
-									
+				<article class="ac-text">
+                            <!-- ............................................... -->
+                            <!--              LIST SUBJECT/UNIT'S                -->
+                            <!-- ............................................... --> 
 								
 								
 								
-									 <div class="ac-sub">
+					<div class="ac-sub">
 									<input class="ac-input" id="ac-<?php echo $ac; ?>" name="ac-2" type="checkbox" />
 									
 									<?php
@@ -64,7 +62,7 @@
 									 echo '<label class="ac-label" for="ac-'. $ac . '"> '. $subject->SubjectName .   ' </label> ';   ?>
                                   <!-- check-box hidden in CSS -->
                                  
-                                <article class="ac-sub-text">
+                             <article class="ac-sub-text">
                                     <!-- ....................................... -->
                                     <!--             LIST PROJECTS               -->
                                     <!-- ....................................... -->
@@ -102,15 +100,15 @@
 											}?>
 											
                                     </ul>  
-                                    </tr>
-   					
- 								
-                               </article>    
+                                  			
+                            </article>  
+              </div> <!-- /ac-sub -->  
+                        </article>  
+             
 								<?php   $ac++; }} ?> 
-                            </div> <!-- /ac-sub -->
-                        </article>
-                    </div> <!-- /ac -->
-               
+                       
+                  
+              </div>
                     <?php } ?> 
                 </section> <!-- /data-container -->
                 <!-- .................. ACCORDIAN END  ......................... -->

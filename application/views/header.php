@@ -51,7 +51,7 @@
 			echo' <nav class="page-wrap">
                 <ul>
                     <li><a href="#"><span class="fa fa-home"></span> Home</a></li>
-                    <li><a href="#"> | &nbsp My Teams </a></li>
+                    <li><a href="#"> | &nbsp; My Teams </a></li>
                    
                 </ul>
 			</nav> ';
