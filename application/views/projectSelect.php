@@ -44,7 +44,7 @@
                             <!--              LIST SUBJECT/UNIT'S                -->
                             <!-- ............................................... --> 			
 								
-					<div class=a" id="ac-<?php echo $ac; ?>" name="ac-2" type="checkbox" />
+					<div class=a" id="ac-<?php echo $ac; ?>" name="ac-<?php echo $ac; ?>" type="checkbox" />
 									
 									<?php
 									
