@@ -8,14 +8,14 @@
                 <!-- ................. ACCORDIAN BEGINS HERE ................... -->
                 <section class="data-container">
                 		
-						<?php $ac=1; foreach  ($courseNames as $names)
+						<?php $ac=1; 
+						
+						foreach  ($courseNames as $names)
 							  {
 	
 						?>
                     <div class="ac">
-						
-						
-						
+
                         <!-- FIRST LEVEL  -->
                         <!-- uses check-box's, but hidden in CSS -->  
                         <input class="ac-input" id="ac-1" name="ac-<?php echo $ac ?>" type="checkbox" />                       
@@ -23,36 +23,26 @@
                         <!--              LIST DEGREE'S/COURSES                  -->
                         <!-- ................................................... --> 
                         <!-- [PLACE HOLDER TEXT FOR DEGREE'S LISTED]  -->
-                        
-                      
-                        
+   
 						<label class="ac-label" for="ac-<?php echo $ac ?>"><?php echo  $names->CourseName; ?></label>
+						 
+						 <article class="ac-text">
+						 
 						 <?php $ac++; ?>
-                      
-                           
-                           
+
                            <?php
-                           
-                           
-                           
+    
                           	
                               	  foreach ($subjectName as $subject ) 
                               	  		{
-                           
-						
 										if ($subject->S_CourseID === $names->CourseID)
 											{
-                              		
-                              		 
-                                	
-									
+	
 									?>
-				<article class="ac-text">
+				
                             <!-- ............................................... -->
                             <!--              LIST SUBJECT/UNIT'S                -->
-                            <!-- ............................................... --> 
-								
-								
+                            <!-- ............................................... --> 			
 								
 					<div class="ac-sub">
 									<input class="ac-input" id="ac-<?php echo $ac; ?>" name="ac-2" type="checkbox" />
@@ -103,11 +93,11 @@
                                   			
                             </article>  
               </div> <!-- /ac-sub -->  
-                        </article>  
+                        
              
 								<?php   $ac++; }} ?> 
                        
-                  
+                  </article>  
               </div>
                     <?php } ?> 
                 </section> <!-- /data-container -->
