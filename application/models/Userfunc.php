@@ -25,7 +25,7 @@ function apiPass($email)
 
 function apiAuth($email, $pass)
 	{
-	$url = "http://localhost/tatui/api/users/loginUser?email=".$email."&password=".$pass;
+	$url = "http://139.59.247.83/api/users/loginUser?email=".$email."&password=".$pass;
 	echo $url . '</br>';
 	
 

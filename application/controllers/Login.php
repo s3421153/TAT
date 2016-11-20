@@ -17,6 +17,7 @@ class Login extends CI_Controller
 			{
 			redirect(Welcome);
 			}
+
 		
 		$header['title']='Team Allocation Tool';
 		$header['pageHeader']= 'T.A.T';
