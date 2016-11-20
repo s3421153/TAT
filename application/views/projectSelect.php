@@ -44,7 +44,8 @@
                             <!--              LIST SUBJECT/UNIT'S                -->
                             <!-- ............................................... --> 			
 								
-					<div class=a" id="ac-<?php echo $ac; ?>" name="ac-<?php echo $ac; ?>" type="checkbox" />
+					<div class="ac-sub">
+									<input class="ac-input" id="ac-<?php echo $ac; ?>" name="ac-<?php echo $ac ?>" type="checkbox" />
 									
 									<?php
 									
@@ -96,7 +97,7 @@
              
 								<?php   $ac++; }} ?> 
                        
-                  </article>    <!-- article ac-text -->
+                  </article>    <!-- article> ac-text
             </div>  <!-- /ac DIV --> 
                     <?php } ?> 
                 </section> <!-- /data-container -->

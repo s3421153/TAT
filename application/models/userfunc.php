@@ -83,7 +83,7 @@ function apiUpdateData()
 		foreach ($subjects as $subject) 
 		{
 
-		$courseID = $this->db->query('SELECT CourseID FROM Course WHERE ApiCourseID = "BT_FT"');
+		$courseID = $this->db->query('SELECT CourseID FROM Course WHERE ApiCourseID = "'. $subject->course_id  .'"');
 		
 		$courseID2 = $courseID->result();
 		$CourseID = $courseID2[0];
@@ -94,6 +94,55 @@ function apiUpdateData()
 
 		}
 		}
+		
+		//UPDATE PROJECTS
+		
+		$projectarrays = json_decode(
+   			 file_get_contents('http://139.59.247.83/index.php/api/getdata/Projects/format/json')
+		);
+
+		foreach ($projectarrays as $projects ) 
+			{
+			foreach ($projects as $project) 
+			{
+			
+	//		$courseID = $this->db->query('SELECT SubjectID FROM Course WHERE ApiCourseID = "BT_FT"');
+			
+		//	$courseID2 = $courseID->result();
+			//$CourseID = $courseID2[0];
+			
+	//		$query = $this->db->query(' INSERT IGNORE INTO Project (SubjectID, SubjectName, CreditPoints, S_CourseID, SubjectAPIID) 
+	//		VALUES (DEFAULT, "'.$subject->subject_name.'", DEFAULT,"'. $CourseID->CourseID.'", "'. $subject->subject_id .'")'); 
+	
+			}
+			}
+		
+		
+		//UPDATE STUDENTS	
+		$studentarry = json_decode(
+   			 file_get_contents('http://139.59.247.83/index.php/api/getdata/Students/format/json')
+		);
+
+	foreach ($studentarry as $students ) 
+		{
+		foreach ($students as $student ) 
+		{
+		
+//		$query = $this->db->query(' INSERT IGNORE INTO Students (StudentID, StudentNo, First_Name, Email, Last_Name, Gender, StudentGPA) VALUES (DEFAULT, "'.$coursenames->course_name.'","'. $coursenames->course_id .'")');
+	
+		}
+		}
+		
+		
+		// UPDATE ENROLLMENTS
+		
+		// UPDATE GPA
+		
+		// UPDATE SKILLS
+		
+		
+		
+		
 	return NULL;
 
 	}
