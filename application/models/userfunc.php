@@ -106,14 +106,23 @@ function apiUpdateData()
 			foreach ($projects as $project) 
 			{
 			
-	//		$courseID = $this->db->query('SELECT SubjectID FROM Course WHERE ApiCourseID = "BT_FT"');
 			
-		//	$courseID2 = $courseID->result();
-			//$CourseID = $courseID2[0];
+			$subjectID = $this->db->query('SELECT subjectID, SubjectAPIID FROM Subject WHERE SubjectAPIID="'.$project->subject_id.'"');
 			
-	//		$query = $this->db->query(' INSERT IGNORE INTO Project (SubjectID, SubjectName, CreditPoints, S_CourseID, SubjectAPIID) 
-	//		VALUES (DEFAULT, "'.$subject->subject_name.'", DEFAULT,"'. $CourseID->CourseID.'", "'. $subject->subject_id .'")'); 
-	
+			
+			
+			if ($subjectID->result() != NULL)
+				{
+				$subjectID2 = $subjectID->result();
+				$subjectID = $subjectID2[0];
+				
+				var_dump($project);
+				
+				
+				$query = $this->db->query(' INSERT IGNORE INTO Project (ProjectID, Name, StudentMax, TakeGPAintoAccount, GenderBalance, StudentMin, P_SubjectID, GPALevel, ProjectAPIID) 
+				VALUES (DEFAULT, "'.$project->project_name.'", NULL, NULL, NULL, NULL,"'. $subjectID->subjectID .'", NULL, "'. $project->project_id .'")'); 
+				
+				}
 			}
 			}
 		
