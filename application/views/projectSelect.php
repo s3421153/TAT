@@ -103,8 +103,7 @@
 											
                                     </ul>  
                                     </tr>
-   									</tbody>
- 								</table>
+   					
  								
                                </article>    
 								<?php   $ac++; }} ?> 
