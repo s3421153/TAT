@@ -36,10 +36,19 @@
                             <!-- ............................................... --> 
                            
                            
-                              
-                               
-                                <!-- [PLACE HOLDER TEXT FOR UNITS LISTED]  --> 
-                                <?php foreach ($subjectName as $subject) {
+                           <?php
+                           
+                           
+                           
+                          	
+                              	  foreach ($subjectName as $subject ) 
+                              	  		{
+                           
+						
+										if ($subject->S_CourseID === $names->CourseID)
+											{
+                              		
+                              		
                                 	
 									
 									?>
@@ -79,8 +88,9 @@
                                    
                                     	 foreach ($projectName as $project) 
                                   			{
-                                    	 		
-											if ($project->P_SubjectID == $subject->SubjectID)
+                                    	 	
+												
+											if ($project->P_SubjectID === $subject->SubjectID)
                                     			{
                                     			echo '<li> <a class="load-form" id="'. $project->ProjectID  . '">'. $project->Name  . '</a></li>'; 
 												
@@ -97,7 +107,7 @@
  								</table>
  								
                                </article>    
-								<?php   $ac++; } ?> 
+								<?php   $ac++; }} ?> 
                             </div> <!-- /ac-sub -->
                         </article>
                     </div> <!-- /ac -->

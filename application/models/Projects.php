@@ -25,7 +25,7 @@ function getProjects()
 
 function getSubject()
 	{
-		$query = $this->db->query('SELECT SubjectID, SubjectName FROM Subject;');
+		$query = $this->db->query('SELECT SubjectID, SubjectName, S_CourseID FROM Subject;');
 	
 		if ($query->num_Rows() > 0 )
 		{
