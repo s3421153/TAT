@@ -26,6 +26,14 @@ function __construct()
 		
 		if ($loggedin == true)
 			{
+				
+			// Update Info from API Database...
+			
+			//Get Courses from API.
+			
+				
+				
+					
 			redirect('Welcome');
 			}
 		else 
