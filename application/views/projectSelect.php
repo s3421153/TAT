@@ -18,7 +18,7 @@
 
                         <!-- FIRST LEVEL  -->
                         <!-- uses check-box's, but hidden in CSS -->  
-                        <input class="ac-input" id="ac-1" name="ac-<?php echo $ac ?>" type="checkbox" />                       
+                        <input class="ac-input" id="ac-<?php echo $ac ?>" name="ac-<?php echo $ac ?>" type="checkbox" />                       
                         <!-- ................................................... -->
                         <!--              LIST DEGREE'S/COURSES                  -->
                         <!-- ................................................... --> 
@@ -44,8 +44,7 @@
                             <!--              LIST SUBJECT/UNIT'S                -->
                             <!-- ............................................... --> 			
 								
-					<div class="ac-sub">
-									<input class="ac-input" id="ac-<?php echo $ac; ?>" name="ac-2" type="checkbox" />
+					<div class=a" id="ac-<?php echo $ac; ?>" name="ac-2" type="checkbox" />
 									
 									<?php
 									
@@ -91,14 +90,14 @@
 											
                                     </ul>  
                                   			
-                            </article>  
+                            </article>   <!-- /ac-sub-text -- >
               </div> <!-- /ac-sub -->  
                         
              
 								<?php   $ac++; }} ?> 
                        
-                  </article>  
-              </div>
+                  </article>    <!-- article ac-text -->
+            </div>  <!-- /ac DIV --> 
                     <?php } ?> 
                 </section> <!-- /data-container -->
                 <!-- .................. ACCORDIAN END  ......................... -->
