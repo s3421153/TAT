@@ -25,7 +25,7 @@ function apiPass($email)
 
 function apiAuth($email, $pass)
 	{
-	$url = "http://139.59.247.83/api/users/loginUser?email=".$email."&password=".$pass;
+	$url = "http://127.0.0.1/tatui/api/users/loginUser?email=".$email."&password=".$pass;
 	
 
 	$loginUser = file_get_contents($url);
@@ -59,7 +59,7 @@ function apiUpdateData()
 	// UPDATE COURSES
 		
 		$courses = json_decode(
-   			 file_get_contents('http://139.59.247.83/index.php/api/getdata/Courses/format/json')
+   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Courses/format/json')
 		);
 
 	foreach ($courses as $course ) 
@@ -75,7 +75,7 @@ function apiUpdateData()
 	//UPDATE SUBJECTS
 				
 		$subjectarrays = json_decode(
-   			 file_get_contents('http://139.59.247.83/index.php/api/getdata/Subjects/format/json')
+   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Subjects/format/json')
 		);
 
 	foreach ($subjectarrays as $subjects ) 
@@ -98,7 +98,7 @@ function apiUpdateData()
 		//UPDATE PROJECTS
 		
 		$projectarrays = json_decode(
-   			 file_get_contents('http://139.59.247.83/index.php/api/getdata/Projects/format/json')
+   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Projects/format/json')
 		);
 
 		foreach ($projectarrays as $projects ) 
@@ -116,7 +116,7 @@ function apiUpdateData()
 				$subjectID2 = $subjectID->result();
 				$subjectID = $subjectID2[0];
 				
-				var_dump($project);
+			//	var_dump($project);
 				
 				
 				$query = $this->db->query(' INSERT IGNORE INTO Project (ProjectID, Name, StudentMax, TakeGPAintoAccount, GenderBalance, StudentMin, P_SubjectID, GPALevel, ProjectAPIID) 
@@ -129,7 +129,7 @@ function apiUpdateData()
 		
 		//UPDATE STUDENTS	
 		$studentarry = json_decode(
-   			 file_get_contents('http://139.59.247.83/index.php/api/getdata/Students/format/json')
+   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Students/format/json')
 		);
 
 	foreach ($studentarry as $students ) 
@@ -137,8 +137,13 @@ function apiUpdateData()
 		foreach ($students as $student ) 
 		{
 		
-//		$query = $this->db->query(' INSERT IGNORE INTO Students (StudentID, StudentNo, First_Name, Email, Last_Name, Gender, StudentGPA) VALUES (DEFAULT, "'.$coursenames->course_name.'","'. $coursenames->course_id .'")');
+		
+		
+		$studentNum = strstr($student->user_id, '@', true);
 	
+		$query = $this->db->query('INSERT IGNORE INTO Student (StudentID, StudentNo, First_Name, Email, Last_Name, Gender, StudentGPA)  VALUES (DEFAULT, "'.$studentNum .'","Joe","'. $student->user_id .'","Bloggs", "NULL", "NULL")');
+		
+		
 		}
 		}
 		
