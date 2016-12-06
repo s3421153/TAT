@@ -25,7 +25,7 @@ function apiPass($email)
 
 function apiAuth($email, $pass)
 	{
-	$url = "http://127.0.0.1/tatui/api/users/loginUser?email=".$email."&password=".$pass;
+	$url = "http://192.241.144.135/tatui/api/users/loginUser?email=".$email."&password=".$pass;
 	
 
 	$loginUser = file_get_contents($url);
@@ -59,7 +59,7 @@ function apiUpdateData()
 	// UPDATE COURSES
 		
 		$courses = json_decode(
-   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Courses/format/json')
+   			 file_get_contents('http://192.241.144.135/tatui/index.php/api/getdata/Courses/format/json')
 		);
 
 	foreach ($courses as $course ) 
@@ -75,7 +75,7 @@ function apiUpdateData()
 	//UPDATE SUBJECTS
 				
 		$subjectarrays = json_decode(
-   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Subjects/format/json')
+   			 file_get_contents('http://192.241.144.135/tatui/index.php/api/getdata/Subjects/format/json')
 		);
 
 	foreach ($subjectarrays as $subjects ) 
@@ -98,7 +98,7 @@ function apiUpdateData()
 		//UPDATE PROJECTS
 		
 		$projectarrays = json_decode(
-   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Projects/format/json')
+   			 file_get_contents('http://192.241.144.135/tatui/index.php/api/getdata/Projects/format/json')
 		);
 
 		foreach ($projectarrays as $projects ) 
@@ -129,7 +129,7 @@ function apiUpdateData()
 		
 		//UPDATE STUDENTS	
 		$studentarry = json_decode(
-   			 file_get_contents('http://127.0.0.1/tatui/index.php/api/getdata/Students/format/json')
+   			 file_get_contents('http://192.241.144.135/tatui/index.php/api/getdata/Students/format/json')
 		);
 
 	foreach ($studentarry as $students ) 
